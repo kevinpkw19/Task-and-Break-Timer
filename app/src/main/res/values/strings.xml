@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Task and Break Timer</string>
+
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_start_task">StartTask</string>
+
+    <string name="CircularProgressBar">CircularProgressBar by Lopez Mikhael which can be found <a href="https://github.com/lopspower/CircularProgressBar">here</a></string>
+
+    <string name="CircularProgressBar2">CircularProgressBar by <a href="http://mikhaellopez.com/">Lopez Mikhael</a> is licensed under a <a href="http://www.apache.org/licenses/LICENSE-2.0.txt">Apache License 2.0</a>. Based on a work at <a href="https://github.com/MRezaNasirloo/CircularProgressBar">Pedramrn/CircularProgressBar.</a></string>
+
+    <string name="MaterialDesign">The Settings Icon used is by Material Design and is licensed  under <a href="http://www.apache.org/licenses/LICENSE-2.0.txt">Apache License 2.0</a>. It can be found <a href="https://material.io/design/guidelines-overview"> here</a></string>
+
+    <string name="ModifiedCountdownTimer">CountDownTimer by Brendan Vercoelen <a href="https://gist.github.com/bverc/1492672">here</a></string>
+
+    <string name="Hourglass">The Hourglass image used is by <a href="https://www.iconfinder.com/Juliia_Os">Julia Osadcha</a></string>
+
+    <string name="About">I\'m currently a student but will update the app whenever possible. For suggestions,improvements and bug fixes, send an email to:</string>
+
+</resources>

@@ -1,0 +1,34 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="General Preferences"/>
+    <EditTextPreference
+        android:defaultValue=""
+        android:key="user_name"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Name"
+        android:summary="Input your name for a personalized greeting"/>
+
+
+
+    <PreferenceCategory android:title="Colours">
+        <ListPreference
+            android:defaultValue="blue"
+            android:entries="@array/Timer_Bar_Colours"
+            android:entryValues="@array/Timer_Bar_Values"
+            android:key="Progress_Bar_Colour"
+            android:title="Timer Colour"
+            android:summary="Choose a colour for the circular timer"/>
+
+    </PreferenceCategory>
+    <ListPreference
+        android:defaultValue="white"
+        android:entries="@array/Timer_Background_Colours"
+        android:entryValues="@array/Timer_Background_Values"
+        android:key="Progress_Bar_Background_Colour"
+        android:title="Timer Background Colour"
+        android:summary="Choose a colour for the background of the circular timer"/>/>
+
+
+</PreferenceScreen>

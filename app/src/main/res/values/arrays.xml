@@ -1,0 +1,41 @@
+<resources>
+    <string-array name="Timer_Bar_Colours">
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>White</item>
+        <item>Black</item>
+        <item>Gray</item>
+    </string-array>
+
+    <string-array name="Timer_Bar_Values">
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>White</item>
+        <item>Black</item>
+        <item>Gray</item>
+    </string-array>
+
+    <string-array name="Timer_Background_Colours">
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>White</item>
+        <item>Black</item>
+        <item>Gray</item>
+    </string-array>
+
+    <string-array name="Timer_Background_Values">
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>White</item>
+        <item>Black</item>
+        <item>Gray</item>
+    </string-array>
+</resources>
