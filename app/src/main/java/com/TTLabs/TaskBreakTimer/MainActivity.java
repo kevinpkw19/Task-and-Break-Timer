@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+//TODO figure out how to auto start and auto loop timers. auto start timers should be easy. but auto repeat can be done by passing a bundle from startbreak back to starttask. This way, we can distinguish between starting from main or repeating
+
 public class MainActivity extends AppCompatActivity{
 
     databaseHelper myDB;
@@ -130,7 +132,11 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void launchStartTask(View v){
-        Intent StartTask= new Intent(this,StartTask.class);
+//        Intent StartTask= new Intent(this,StartTask.class);
+//        StartTask.putExtra("key",taskChosen);
+//        startActivity(StartTask);
+
+        Intent StartTask= new Intent(this,StartBothTimers.class);
         StartTask.putExtra("key",taskChosen);
         startActivity(StartTask);
     }

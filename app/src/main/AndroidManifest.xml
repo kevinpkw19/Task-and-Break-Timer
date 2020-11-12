@@ -29,6 +29,10 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.TTLabs.TaskBreakTimer.StartBothTimers"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.TTLabs.TaskBreakTimer.StartTask"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />

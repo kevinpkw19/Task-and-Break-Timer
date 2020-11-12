@@ -28,7 +28,20 @@
         android:entryValues="@array/Timer_Background_Values"
         android:key="Progress_Bar_Background_Colour"
         android:title="Timer Background Colour"
-        android:summary="Choose a colour for the background of the circular timer"/>/>
+        android:summary="Choose a colour for the background of the circular timer"/>
+    <PreferenceCategory android:title="Timer Options">
+
+    </PreferenceCategory>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="auto_start_break_timer"
+        android:title="Auto-Start Break Timer"
+        android:summary="Automatically start the break timer once the task timer ends"/>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="auto_repeat_timers"
+        android:title="Auto-Repeat Task and Break"
+        android:summary="Automatically restarts the task and break set once one set is over."/>
 
 
 </PreferenceScreen>

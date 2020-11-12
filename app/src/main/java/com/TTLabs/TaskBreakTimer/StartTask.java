@@ -30,7 +30,6 @@ public class StartTask extends AppCompatActivity {
     databaseHelper myDB;
     String value="";
     String tasklength;
-    String breakLength;
     ModifiedCountDownTimer countDownTimer;
     Long newValue;
     Long newValueM;
@@ -76,7 +75,6 @@ public class StartTask extends AppCompatActivity {
         }
 
         tasklength = myDB.getTaskLength(value);
-        breakLength = myDB.getBreakLength(value);
         timeRemaining.setText(tasklength + ":00");
         newValue = Long.parseLong(tasklength);
         newValueM = (newValue * 60 * 1000);

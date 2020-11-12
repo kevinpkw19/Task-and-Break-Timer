@@ -78,7 +78,6 @@ public class StartBreak extends AppCompatActivity {
             value = data.getString("key");
         }
 
-        breakLength=myDB.getTaskLength(value);
         breakLength= myDB.getBreakLength(value);
         timeRemaining.setText(breakLength + ":00");
         newValue= Long.parseLong(breakLength);
