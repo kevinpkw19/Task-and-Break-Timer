@@ -1,5 +1,6 @@
 package com.TTLabs.TaskBreakTimer;
 
+// Now redundant but kept in case bugs are found
 /**CircularProgressBar by Lopez Mikhael is licensed under a Apache License 2.0. Based on a work at Pedramrn/CircularProgressBar.
  */
 
