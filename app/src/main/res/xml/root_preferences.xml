@@ -40,6 +40,7 @@
     <SwitchPreference
         android:defaultValue="false"
         android:key="auto_repeat_timers"
+        android:dependency="auto_start_break_timer"
         android:title="Auto-Repeat Task and Break"
         android:summary="Automatically restarts the task and break set once one set is over."/>
 

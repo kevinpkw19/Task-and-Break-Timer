@@ -47,6 +47,7 @@ public class StartBothTimers extends AppCompatActivity {
     Button repeatButton;
     Boolean Timer;
     Boolean autoStartBreakTimer;
+    Boolean autoRepeatTimers;
     SharedPreferences prefs;
     NotificationManager notificationManager;
     
@@ -76,6 +77,7 @@ public class StartBothTimers extends AppCompatActivity {
         String ProgressBarColour=prefs.getString("Progress_Bar_Colour","blue");
         String  ProgressBarBackgroundColour= prefs.getString("Progress_Bar_Background_Colour","white");
         autoStartBreakTimer= prefs.getBoolean("auto_start_break_timer", false);
+        autoRepeatTimers=prefs.getBoolean("auto_repeat_timers",false);
         int intPBC = Color.parseColor(ProgressBarColour);
         int intPBBC= Color.parseColor(ProgressBarBackgroundColour);
         circularProgressBar = findViewById(R.id.circularProgressBar);
@@ -116,7 +118,7 @@ public class StartBothTimers extends AppCompatActivity {
     public void startTimer(View v) {
         if (Timer){
             notificationManager.cancel(250);
-            circularProgressBar.setProgressWithAnimation(100f, taskM); // =1s
+            circularProgressBar.setProgressWithAnimation(100f, taskM);
             startButton.setVisibility(View.GONE);
             pauseButton.setVisibility(View.VISIBLE);
             countDownTimer = new ModifiedCountDownTimer(taskM, 1000) {
@@ -158,7 +160,7 @@ public class StartBothTimers extends AppCompatActivity {
             countDownTimer.start();
         } else{
             notificationManager.cancel(240);
-            circularProgressBar.setProgressWithAnimation(100f, breakM); // =1s
+            circularProgressBar.setProgressWithAnimation(100f, breakM);
             startButton.setVisibility(View.GONE);
             pauseButton.setVisibility(View.VISIBLE);
             countDownTimer = new ModifiedCountDownTimer(breakM, 1000) {
@@ -194,8 +196,52 @@ public class StartBothTimers extends AppCompatActivity {
 
     }
 
-    // Overloaded for auto starting on end
+    // Overloaded for auto starting on end and repeat timers
     public void startTimer() {
+        if (Timer) {
+            circularProgressBar.setProgressWithAnimation(100f, taskM);
+            startButton.setVisibility(View.GONE);
+            pauseButton.setVisibility(View.VISIBLE);
+            countDownTimer = new ModifiedCountDownTimer(taskM, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    Long minutes = (millisUntilFinished / 60000);
+                    String Sminutes = minutes.toString();
+                    Long Seconds = (millisUntilFinished / 1000) - (60 * minutes);
+                    String Sseconds = Seconds.toString();
+                    spareValue = (float) millisUntilFinished;
+                    Tracker = millisUntilFinished;
+
+                    if (Seconds < 10) {
+                        timeRemaining.setText(Sminutes + ":0" + Sseconds);
+                    } else {
+                        timeRemaining.setText(Sminutes + ":" + Sseconds);
+                    }
+                    if (Sminutes == "0" && Sseconds == "0") {
+                        countDownTimer.onFinish();
+
+                    }
+
+                }
+
+                public void onFinish() {
+                    circularProgressBar.setProgressWithAnimation(0, 0L);
+                    timeRemaining.setText("0:00");
+                    pauseButton.setVisibility(View.GONE);
+                    startButton.setVisibility(View.VISIBLE);
+                    TimerNotification();
+                    notificationManager.cancel(250);
+                    Timer = false;
+                    timerName.setText("Break Time");
+                    timeRemaining.setText(breakLength + ":00");
+
+                    if (autoRepeatTimers) {
+                        startTimer();
+                    }
+
+                }
+            };
+            countDownTimer.start();
+        } else{
         circularProgressBar.setProgressWithAnimation(100f, breakM); // =1s
         startButton.setVisibility(View.GONE);
         pauseButton.setVisibility(View.VISIBLE);
@@ -221,15 +267,25 @@ public class StartBothTimers extends AppCompatActivity {
             }
             public void onFinish() {
                 timeRemaining.setText("0:00");
-                pauseButton.setVisibility(View.GONE);
-                repeatButton.setVisibility(View.VISIBLE);
+
                 TimerNotification();
                 notificationManager.cancel(240);
+
+                if (autoRepeatTimers) {
+                    circularProgressBar.setProgressWithAnimation(0, 0L);
+                    Timer = true;
+                    timerName.setText("Task Time");
+                    timeRemaining.setText(breakLength + ":00");
+                    startTimer();
+                } else{
+                    pauseButton.setVisibility(View.GONE);
+                    repeatButton.setVisibility(View.VISIBLE);
+                }
 
             }
         };
         countDownTimer.start();
-    }
+    }}
 
     public void repeatTimer(View v){
         timerName.setText("Task Time");
