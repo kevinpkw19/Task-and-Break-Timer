@@ -32,7 +32,7 @@
         android:layout_marginBottom="120dp"
         android:onClick="startTimer"
         android:text="Start"
-        app:layout_constraintBottom_toTopOf="@+id/btn_cancelBreak"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circularProgressBar" />
@@ -45,7 +45,7 @@
         android:layout_marginBottom="120dp"
         android:onClick="ResumeTimer"
         android:text="Resume"
-        app:layout_constraintBottom_toTopOf="@+id/btn_cancelBreak"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circularProgressBar" />
@@ -58,7 +58,7 @@
         android:layout_marginBottom="120dp"
         android:onClick="PauseTimer"
         android:text="Pause"
-        app:layout_constraintBottom_toTopOf="@+id/btn_cancelBreak"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circularProgressBar" />
