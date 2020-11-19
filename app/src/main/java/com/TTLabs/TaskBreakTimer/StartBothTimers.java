@@ -105,12 +105,11 @@ public class StartBothTimers extends AppCompatActivity {
     public void cancelBreak(View v){
         if (countDownTimer!=null){
             countDownTimer.cancel();
-            finish();
         }
         else{
             notificationManager.cancelAll();
-            finish();
         }
+        finish();
     }
 
 
@@ -311,13 +310,11 @@ public class StartBothTimers extends AppCompatActivity {
 
         if (Timer){
             spareValue=(spareValue/taskM)*100;
-            spareValue= 100-spareValue;
-            circularProgressBar.setProgressWithAnimation(spareValue);
         } else{
             spareValue=(spareValue/breakM)*100;
-            spareValue= 100-spareValue;
-            circularProgressBar.setProgressWithAnimation(spareValue);
         }
+        spareValue= 100-spareValue;
+        circularProgressBar.setProgressWithAnimation(spareValue);
 
     }
 
@@ -326,13 +323,20 @@ public class StartBothTimers extends AppCompatActivity {
         if (countDownTimer != null) {
             countDownTimer.cancel();
             circularProgressBar.setProgressWithAnimation(0);
-            timeRemaining.setText(breakLength + ":00");
             pauseButton.setVisibility(View.GONE);
             resetButton.setVisibility(View.GONE);
             startButton.setVisibility(View.VISIBLE);
             resumeButton.setVisibility((View.GONE));
+
+            if (Timer) {
+                timeRemaining.setText(taskLength + ":00");
+            } else{
+                timeRemaining.setText(breakLength + ":00");
+            }
+            }
+
         }
-    }
+
 
     public  void ResumeTimer(View v){
         if(countDownTimer!=null) {
@@ -408,10 +412,10 @@ public class StartBothTimers extends AppCompatActivity {
         notificationManager.cancelAll();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//    }
 
 
 

@@ -44,9 +44,11 @@ public class MainActivity extends AppCompatActivity{
         TextView taskLengthDisplay= findViewById(R.id.taskLengthDisplay);
         TextView breakLengthDisplay= findViewById(R.id.breakLengthDisplay);
         TextView welcomeGreeting= findViewById(R.id.textview_first);
+        TextView taskLengthTxt= findViewById(R.id.TaskLengthTxt);
+        TextView breakLengthTxt= findViewById(R.id.BreakLengthtxt);
+
         TextView userHint= findViewById(R.id.userHint);
         Spinner taskLister= findViewById(R.id.taskLister);
-        welcomeGreeting.setText("Welcome Back " + customName);
         myDB= new databaseHelper(this);
         List<String> all_tasks=myDB.getAllTasks();
 
@@ -73,10 +75,17 @@ public class MainActivity extends AppCompatActivity{
             if (all_tasks.isEmpty()){
                 btnEditTask.setVisibility(View.GONE);
                 btnStartTask.setVisibility(View.GONE);
+                taskLister.setVisibility(View.GONE);
+                welcomeGreeting.setText("Welcome " + customName + "!");
+                taskLengthTxt.setVisibility(View.GONE);
+                breakLengthTxt.setVisibility(View.GONE);
             } else{
                 btnEditTask.setVisibility(View.VISIBLE);
                 btnStartTask.setVisibility(View.VISIBLE);
                 userHint.setVisibility(View.GONE);
+                taskLengthTxt.setVisibility(View.VISIBLE);
+                breakLengthTxt.setVisibility(View.VISIBLE);
+                welcomeGreeting.setText("Welcome Back " + customName + "!");
             }
 
         }
