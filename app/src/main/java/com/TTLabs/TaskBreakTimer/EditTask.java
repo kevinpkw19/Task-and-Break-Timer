@@ -38,13 +38,17 @@ public class EditTask extends AppCompatActivity {
     }
 
     public void updatedatabase(View v){
+
         try {
-
-
             String taskNameInput= taskNamedisplay.getText().toString();
+            Boolean Check= myDB.checkTaskName(taskNameInput);
+            String IDCheck= myDB.getID(taskNameInput);
             if (taskNameInput.equals("")){
                 Toast.makeText(this, "Please Fill all fields", Toast.LENGTH_SHORT).show();
-            } else{
+            } else if(Check==true && !IDCheck.equals(value)){
+                Toast.makeText(this, "A Task with that name already exists. Please Choose another name.", Toast.LENGTH_SHORT).show();
+            }
+            else {
             int taskLengthinput= Integer.parseInt(taskLengthdisplay.getText().toString());
             int breakLengthinput=Integer.parseInt(breakLengthdisplay.getText().toString());
 

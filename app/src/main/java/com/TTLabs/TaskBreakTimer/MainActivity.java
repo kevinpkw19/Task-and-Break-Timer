@@ -20,6 +20,8 @@ import android.widget.TextView;
 import java.util.List;
 
 //TODO figure out how to auto start and auto loop timers. auto start timers should be easy. but auto repeat can be done by passing a bundle from startbreak back to starttask. This way, we can distinguish between starting from main or repeating
+//TODO add statistics to keep track of how much work per week/month
+
 
 public class MainActivity extends AppCompatActivity{
 

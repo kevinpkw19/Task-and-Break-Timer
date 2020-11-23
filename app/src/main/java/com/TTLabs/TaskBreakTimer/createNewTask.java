@@ -28,12 +28,16 @@ public class createNewTask extends AppCompatActivity {
         TextView taskName= findViewById(R.id.taskNameInput);
         TextView taskLength= findViewById(R.id.taskLengthInput);
         TextView breakLength= findViewById(R.id.breakLengthInput);
+
         try {
             String taskNameInput= taskName.getText().toString();
-
+            Boolean Check= myDB.checkTaskName(taskNameInput);
             if (taskNameInput.equals("")){
                 Toast.makeText(this, "Please Fill all fields", Toast.LENGTH_SHORT).show();
-            } else{
+            } else if(Check==true) {
+                Toast.makeText(this, "A Task with that name already exists. Please Choose another name.", Toast.LENGTH_SHORT).show();
+            }
+            else{
             int taskLengthinput= Integer.parseInt(taskLength.getText().toString());
             int breakLengthinput=Integer.parseInt(breakLength.getText().toString());
 

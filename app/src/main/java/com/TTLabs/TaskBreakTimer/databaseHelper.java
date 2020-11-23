@@ -51,7 +51,8 @@ public class databaseHelper extends SQLiteOpenHelper {
     public List<String> getAllTasks() {
         SQLiteDatabase db = this.getWritableDatabase();
         List<String> all_tasks = new ArrayList<String>();
-        Cursor dbCursor = db.rawQuery("SELECT * FROM dataTable", null);
+//        Cursor dbCursor = db.rawQuery("SELECT * FROM dataTable", null);
+        Cursor dbCursor= db.query(tableName,null,null,null,null,null,null);
         while(dbCursor.moveToNext())
         {
             String taskNames = dbCursor.getString(dbCursor.getColumnIndex("taskName"));
@@ -108,6 +109,23 @@ public class databaseHelper extends SQLiteOpenHelper {
             value = dbCursor.getString(dbCursor.getColumnIndex(col_1));
         }
         return value;
+    }
+
+    public boolean checkTaskName(String taskName) {
+        String value = "";
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] columns = {col_1};
+        Cursor dbCursor = db.query(tableName, columns, col_1 + "= '" + taskName + "'", null, null, null, null);
+
+        while (dbCursor.moveToNext()) {
+            value = dbCursor.getString(dbCursor.getColumnIndex(col_1));
+        }
+        if (value== ""){
+            return false;
+        }else{
+            return true;
+        }
+
     }
 
     public boolean UpdateData(String ID,String taskName,int taskLength,int breakLength){
